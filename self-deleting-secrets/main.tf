@@ -35,7 +35,7 @@ resource "vault_generic_endpoint" "kv-config" {
 
   data_json = <<EOT
 {
-	"delete_version_after": "60s"
+	"delete_version_after": "1m0s"
 }
 EOT
 }
