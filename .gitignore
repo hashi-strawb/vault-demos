@@ -1,0 +1,4 @@
+**/.terraform/modules
+**/.terraform/providers
+**/.terraform/environment
+**/.terraform.lock.hcl
