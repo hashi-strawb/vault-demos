@@ -21,7 +21,7 @@ resource "vault_mount" "kv" {
 
 resource "vault_egp_policy" "mfa-and-cidr" {
   name              = "mfa-and-cidr"
-  paths             = ["kv/*"]
+  paths             = ["kv/data/*"]
   enforcement_level = "hard-mandatory"
 
   policy = <<EOT
@@ -36,10 +36,10 @@ cidrcheck = rule {
 
 # Require Ping MFA validation to succeed
 mfa_valid = rule {
-    mfa.methods.okta.valid
+    mfa.methods.duo.valid
 }
 
-# Requests must come from a specified IP range, and Okta MFA must pass
+# Requests must come from a specified IP range, and Duo MFA must pass
 main = rule {
     cidrcheck and mfa_valid
 }
