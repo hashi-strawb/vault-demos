@@ -1,17 +1,3 @@
-terraform {
-  cloud {
-    organization = "hashi_strawb_demo"
-
-    workspaces {
-      tags = ["demo", "vault"]
-    }
-  }
-}
-
-provider "vault" {
-  address   = var.vault_address
-  namespace = var.vault_namespace
-}
 
 resource "vault_mount" "kv" {
   path        = "self-deleting-secrets"
