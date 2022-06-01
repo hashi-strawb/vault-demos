@@ -7,4 +7,4 @@ apply:
 
 
 destroy:
-	terraform destroy
+	terraform destroy -auto-approve
